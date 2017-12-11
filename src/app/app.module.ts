@@ -16,9 +16,8 @@ const environment = {
   production: false,
 };
 
-export const metaReducers: MetaReducer<any>[] = !environment.production
-  ? [storeFreeze]
-  : [];
+export const metaReducers:
+  MetaReducer<any>[] = !environment.production? [storeFreeze]: [];
 
 // bootstrap
 import { AppComponent } from './containers/app/app.component';
