@@ -8,7 +8,7 @@ export interface PizzaState{
     loading:boolean;
 }
 export const initialState: PizzaState = {
-    entities: [ ],
+    entities:{},
     loaded: false,
     loading: false
 };
