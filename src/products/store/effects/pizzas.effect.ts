@@ -24,6 +24,34 @@ export class PizzasEffects{
                    map(pizzas => new pizzaActions.LoadPizzasSuccess(pizzas)),
                    catchError(error => of(new pizzaActions.LoadPizzasFail(error))) 
                 );
-            })
+            }
+        )
+    );
+
+    @Effect()
+    createPizza$ = this.actions$.ofType(pizzaActions.CREATE_PIZZA)
+        .pipe(
+            map((action: pizzaActions.CreatePizza) => action.payload),
+            switchMap(pizza => {
+                return this.pizzaServices
+                    .createPizza(pizza).pipe(
+                        map(pizza => new pizzaActions.CreatePizzaSucces(pizza)),
+                        catchError(error => of(new pizzaActions.CreatePizzaFail(error)))
+                    );           
+                }
+            )
         );
+    
+        @Effect()
+        updatePizza$ = this.actions$.ofType(pizzaActions.UPDATE_PIZZA)
+            .pipe(
+                map((action: pizzaActions.UpdatePizza) => action.payload),
+                switchMap(pizza =>{
+                    return this.pizzaServices
+                        .updatePizza(pizza).pipe(
+                            map(pizza => new pizzaActions.UpdatePizzaSuccess(pizza)),
+                            catchError(error => of(new pizzaActions.UpdatePizzaFails(error)))
+                        )
+                })
+            )
 }
