@@ -19,7 +19,7 @@ export class ToppingsEffects{
             return this.toppingsServices
             .getToppings()
             .pipe(
-                map(toppings => new toppingsActions.LoadToppingsSucces(toppings)),
+                map(toppings => new toppingsActions.LoadToppingsSuccess(toppings)),
                 catchError(error => of(new toppingsActions.LoadToppingsFail(error)))
             );
         })

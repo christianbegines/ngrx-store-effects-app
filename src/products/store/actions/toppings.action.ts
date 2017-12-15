@@ -1,38 +1,34 @@
-import { Action } from "@ngrx/store";
-import { Topping } from "../../models/topping.model";
+import { Action } from '@ngrx/store';
 
-// toppings
+import { Topping } from '../../models/topping.model';
+
 export const LOAD_TOPPINGS = '[Products] Load Toppings';
 export const LOAD_TOPPINGS_FAIL = '[Products] Load Toppings Fail';
 export const LOAD_TOPPINGS_SUCCESS = '[Products] Load Toppings Success';
-export const VISUALICE_TOPPINGS = '[Products] Visualise toppings';
+export const VISUALISE_TOPPINGS = '[Products] Visualise Toppings';
 
 export class LoadToppings implements Action {
-    readonly type = LOAD_TOPPINGS;
+  readonly type = LOAD_TOPPINGS;
 }
 
 export class LoadToppingsFail implements Action {
-    readonly type = LOAD_TOPPINGS_FAIL;
-    constructor(public payload: any){}
+  readonly type = LOAD_TOPPINGS_FAIL;
+  constructor(public payload: any) {}
 }
 
-export class LoadToppingsSucces implements Action {
-    readonly type = LOAD_TOPPINGS_SUCCESS;
-    constructor(public payload: Topping[]){}
+export class LoadToppingsSuccess implements Action {
+  readonly type = LOAD_TOPPINGS_SUCCESS;
+  constructor(public payload: Topping[]) {}
 }
 
 export class VisualiseToppings implements Action {
-    readonly type = VISUALICE_TOPPINGS;
-    constructor(public payload: number[]){}
+  readonly type = VISUALISE_TOPPINGS;
+  constructor(public payload: number[]) {}
 }
 
-
-
-
-
-//Actions types
-export type ToppingsAction = 
-    | LoadToppings 
-    | LoadToppingsFail 
-    | LoadToppingsSucces
-    | VisualiseToppings;
+// action types
+export type ToppingsAction =
+  | LoadToppings
+  | LoadToppingsFail
+  | LoadToppingsSuccess
+  | VisualiseToppings;

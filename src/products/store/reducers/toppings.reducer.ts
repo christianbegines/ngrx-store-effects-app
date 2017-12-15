@@ -21,7 +21,7 @@ export function reducer(
 ): ToppingsState{
 
     switch(action.type){
-        case fromToppings.VISUALICE_TOPPINGS: {
+        case fromToppings.VISUALISE_TOPPINGS: {
             const selectedToppings = action.payload;
             
             return {
