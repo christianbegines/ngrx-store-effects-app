@@ -31,6 +31,7 @@ import { tap } from 'rxjs/operators';
   `,
 })
 export class ProductItemComponent implements OnInit {
+  
   pizza$: Observable<Pizza>;
   visualise$: Observable<Pizza>;
   toppings$: Observable<Topping[]>;
@@ -67,7 +68,7 @@ export class ProductItemComponent implements OnInit {
   onRemove(event: Pizza) {
     const remove = window.confirm('Are you sure?');
     if (remove) {
-     
+      this.store.dispatch(new fromStore.RemovePizza(event));
     }
   }
 }

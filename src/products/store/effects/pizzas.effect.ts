@@ -34,7 +34,8 @@ export class PizzasEffects{
             map((action: pizzaActions.CreatePizza) => action.payload),
             switchMap(pizza => {
                 return this.pizzaServices
-                    .createPizza(pizza).pipe(
+                    .createPizza(pizza)
+                    .pipe(
                         map(pizza => new pizzaActions.CreatePizzaSucces(pizza)),
                         catchError(error => of(new pizzaActions.CreatePizzaFail(error)))
                     );           
@@ -48,10 +49,25 @@ export class PizzasEffects{
                 map((action: pizzaActions.UpdatePizza) => action.payload),
                 switchMap(pizza =>{
                     return this.pizzaServices
-                        .updatePizza(pizza).pipe(
+                        .updatePizza(pizza)
+                        .pipe(
                             map(pizza => new pizzaActions.UpdatePizzaSuccess(pizza)),
                             catchError(error => of(new pizzaActions.UpdatePizzaFails(error)))
-                        )
+                        );
                 })
-            )
+            );
+
+        @Effect()
+        removePizza$ = this.actions$.ofType(pizzaActions.REMOVE_PIZZA)
+            .pipe(
+                map((action: pizzaActions.RemovePizza) => action.payload),
+                switchMap(pizza =>{
+                    return this.pizzaServices
+                        .removePizza(pizza)
+                        .pipe(
+                            map(() => new pizzaActions.RemovePizzaSuccess(pizza)),
+                            catchError(error => of(new pizzaActions.RemovePizzaFail(error)))
+                        );
+                })
+            );
 }
