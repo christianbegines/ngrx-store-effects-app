@@ -51,14 +51,80 @@
   ],
   "pizzas": [
     {
-      "name": "Plain Ol' Pepperoni",
+      "name": "oli peperoni",
       "toppings": [
+        {
+          "id": 2,
+          "name": "bacon"
+        },
+        {
+          "id": 6,
+          "name": "mushroom"
+        },
+        {
+          "id": 10,
+          "name": "pepperoni"
+        },
+        {
+          "id": 1,
+          "name": "anchovy"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "Full de estambul",
+      "toppings": [
+        {
+          "id": 12,
+          "name": "tomato"
+        },
+        {
+          "id": 11,
+          "name": "sweetcorn"
+        },
+        {
+          "id": 7,
+          "name": "olive"
+        },
+        {
+          "id": 8,
+          "name": "onion"
+        },
+        {
+          "id": 4,
+          "name": "chili"
+        },
+        {
+          "id": 3,
+          "name": "basil"
+        },
+        {
+          "id": 2,
+          "name": "bacon"
+        },
+        {
+          "id": 6,
+          "name": "mushroom"
+        },
+        {
+          "id": 9,
+          "name": "pepper"
+        },
+        {
+          "id": 5,
+          "name": "mozzarella"
+        },
+        {
+          "id": 1,
+          "name": "anchovy"
+        },
         {
           "id": 10,
           "name": "pepperoni"
         }
       ],
-      "id": 3
+      "id": 5
     }
   ]
 }
